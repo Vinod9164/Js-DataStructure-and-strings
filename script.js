@@ -22,7 +22,7 @@ const restaurant = {
       close: 23,
     },
     sat: {
-      open: 0, // Open 24 hours
+      open: 0, // Open 24 hours 
       close: 24,
     },
   },
@@ -31,3 +31,20 @@ const restaurant = {
 
 //Array destructing 
 
+
+//normal way 
+const arr = [1,2,3,4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+const d = arr[3];
+
+//using destructing 
+const [x,y,z,w] = arr;
+console.log(x,y,z,w);
+console.log(arr);
+
+//destructin from above array 
+
+const [first,second] = restaurant.categories;
+console.log(first,second);
