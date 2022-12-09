@@ -14,7 +14,6 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
-
   openingHours: {
     thu: {
       open: 12,
@@ -29,7 +28,26 @@ const restaurant = {
       close: 24,
     },
   },
+
+    //create a function that takes params 
+    //adding default parms if this cannot be destructed 
+    orderDelivery : function ({starterIndex = 1,mainIndex = 1,time = '12:00',address ='somewhere'}){
+      console.log(`${this.starterMenu[starterIndex]} ${this.mainMenu[mainIndex]} ${address} ${time}`);
+     },
 };
+
+restaurant.orderDelivery({
+  time:'22:30',
+  address:'Bangalore',
+  mainIndex:2,
+  starterIndex:3
+})
+
+restaurant.orderDelivery({
+  mainIndex:2,
+})
+
+
 
 
 // ObJect Destructuring
@@ -56,6 +74,10 @@ const obj = { a: 22, b: 7, c: 14 };
 ({a,b} = obj)
 
 console.log(a,b);
+
+//Nested Destructring
+ const {fri:{open : o,close : c}} = openingHours;
+ console.log(o,c);
 // -------------------------------------------------------------------------------------------------------------------
 // //Array destructing 
 
