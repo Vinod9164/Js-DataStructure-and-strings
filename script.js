@@ -6,7 +6,7 @@ const flights =
 
 // Data needed for first part of the section
 const restaurant = {
-  name: 'Classico Italiano',
+  name: 'Classico Italiano Vinod',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
@@ -32,55 +32,86 @@ const restaurant = {
 };
 
 
-//Array destructing 
+// ObJect Destructuring
+
+const {openingHours,name,categories} = restaurant;
+
+console.log(name,openingHours,categories);
+
+//want to call diffent var name
+
+const {name:Vinod,openingHours:tommorow,categories:Books} = restaurant;
+console.log(Vinod,tommorow,Books);
+
+//Using Default Value
+
+const {menu = [],starterMenu:StrtMenu = []} = restaurant;
+console.log(menu,StrtMenu);
+
+//Mutating Variable
+let a = 1000;
+let b = 999;
+const obj = { a: 22, b: 7, c: 14 };
+
+({a,b} = obj)
+
+console.log(a,b);
+// -------------------------------------------------------------------------------------------------------------------
+// //Array destructing 
 
 
-//normal way 
-const arr = [1, 2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
-const d = arr[3];
+// //normal way 
+// const arr = [1, 2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+// const d = arr[3];
 
-//using destructing 
-const [x, y, z, w] = arr;
-console.log(x, y, z, w);
-console.log(arr);
+// //using destructing 
+// const [x, y, z, w] = arr;
+// console.log(x, y, z, w);
+// console.log(arr);
 
-//destructin from above array 
+// //destructin from above array 
 
-const [first, second] = restaurant.categories;
-console.log(first, second);
+// const [first, second] = restaurant.categories;
+// console.log(first, second);
 
-let [first1, , second1] = restaurant.categories;
-console.log(first1, second1);
-
-
-//Switcing variable withour destructuring
-
-// let temp = first1;
-// first1 = second1;
-// second1 = temp;
+// let [first1, , second1] = restaurant.categories;
+// console.log(first1, second1);
 
 
-// switch varibales with destructing
+// //Switcing variable withour destructuring
 
-[first1, second1] = [second1, first1]
-console.log(first1, second1)
+// // let temp = first1;
+// // first1 = second1;
+// // second1 = temp;
 
-const [u, v] = restaurant.order(2, 1);
-console.log(u, v);
 
-//nestd array destructring
+// // switch varibales with destructing
 
-const arrX = [1, 2, [4, 5]];
-const [l, , n] = arrX;
-console.log(l, n);
+// [first1, second1] = [second1, first1]
+// console.log(first1, second1)
 
-const [j, , [k, f]] = arrX;
-console.log(j, k, f);
+// const [u, v] = restaurant.order(2, 1);
+// console.log(u, v);
 
-// setting default value
-// const [p,q,r] = [8,9]
-const [p = 1, q = 1, r = 1] = [8, 9]
-console.log(p, q, r);
+// //nestd array destructring
+
+// const arrX = [1, 2, [4, 5]];
+// const [l, , n] = arrX;
+// console.log(l, n);
+
+// const [j, , [k, f]] = arrX;
+// console.log(j, k, f);
+
+// // setting default value
+// // const [p,q,r] = [8,9]
+// const [p = 1, q = 1, r = 1] = [8, 9]
+// console.log(p, q, r);
+
+
+
+
+// ///Destucturinng Objects 
+
