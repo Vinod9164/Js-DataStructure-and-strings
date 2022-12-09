@@ -40,8 +40,8 @@ console.log(name,openingHours,categories);
 
 //want to call diffent var name
 
-const {name:Vinod,openingHours:tommorow,categories:Books} = restaurant;
-console.log(Vinod,tommorow,Books);
+const {name:Vinod,openingHours:hours,categories:Books} = restaurant;
+console.log(Vinod,hours,Books);
 
 //Using Default Value
 
