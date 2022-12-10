@@ -137,3 +137,36 @@ console.log(a,b);
 
 // ///Destucturinng Objects 
 
+
+// ----------------------------------------------------------------------------------------------------
+
+//spread Operators
+
+const arr = [1,2,3,4];
+// console.log(1,2,arr[0],arr[1],arr[2],arr[3],arr[4]);
+console.log(1,2,...arr);
+console.log(...arr);
+
+const newarr = [...restaurant.mainMenu,'gnocci'];
+console.log(newarr);
+
+//cpy array
+
+const cpyarr = [...restaurant.mainMenu];
+console.log(cpyarr);
+
+//join two arrays
+
+const joinArr = [...restaurant.mainMenu,...restaurant.starterMenu];
+console.log(joinArr);
+
+//iterable array,strings,map not objects
+
+const str = 'Jonas';
+const StrA=  [...str,'','S.'];
+console.log(StrA);
+
+
+
+
+
