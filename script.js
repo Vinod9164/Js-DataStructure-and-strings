@@ -34,6 +34,10 @@ const restaurant = {
     orderDelivery : function ({starterIndex = 1,mainIndex = 1,time = '12:00',address ='somewhere'}){
       console.log(`${this.starterMenu[starterIndex]} ${this.mainMenu[mainIndex]} ${address} ${time}`);
      },
+
+     orderpastas : function ( int1,int2,int3){
+      console.log(`here is your dilicious pastas ${int1},${int2},${int3}`)
+     }
 };
 
 restaurant.orderDelivery({
