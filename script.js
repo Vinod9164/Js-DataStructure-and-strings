@@ -170,9 +170,33 @@ const str = 'Jonas';
 const StrA=  [...str,'','S.'];
 console.log(StrA);
 
+
+
+
 //not posibble to use inside object literals ${...x} not allowed
 
 
+//Real world expanle
+const ingredients = [
+  // prompt("will make pasta int1"),
+  // prompt("will make pasta int2"),
+  // prompt("will make pasta int3")
+];
+console.log(ingredients);
 
+restaurant.orderpastas(ingredients[0],ingredients[1],ingredients[2]);
+restaurant.orderpastas(...ingredients);
+// /
 
+//Object
+
+const restNew = {since:1994,...restaurant,founder:'vimzz'};
+console.log(restNew);
+
+//copy
+
+const restCopy = {...restaurant};
+restCopy.name = 'restorente india';
+console.log(restCopy.name);
+console.log(restaurant.name);
 
