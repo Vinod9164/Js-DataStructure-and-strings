@@ -166,6 +166,8 @@ const str = 'Jonas';
 const StrA=  [...str,'','S.'];
 console.log(StrA);
 
+//not posibble to use inside object literals ${...x} not allowed
+
 
 
 
