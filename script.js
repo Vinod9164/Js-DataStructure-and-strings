@@ -173,6 +173,7 @@ console.log(StrA);
 
 
 
+
 //not posibble to use inside object literals ${...x} not allowed
 
 
