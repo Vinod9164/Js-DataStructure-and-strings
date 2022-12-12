@@ -82,7 +82,7 @@ const rest2 = {
 // rest1.numberOfGuest ??=10;
 // rest2.numberOfGuest ??=10;
 
-// rest1.Ownber = rest1.Ownber && '<anonymous>'; //return Undefined old Solution
+// rest1.Ownber = rest1.Ownber && '<anonymous>'; //return Undefined old/soution
 // rest2.Ownber = rest2.Ownber && '<Anonymous>';
 
 rest1.Ownber &&='<anoymous>'; //return Zeeo es2020 better solution
