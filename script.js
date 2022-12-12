@@ -56,6 +56,45 @@ restaurant.orderDelivery({
   mainIndex:2,
 })
 
+const rest1 = {
+  name: 'vinod',
+  // numberOfGuest: 0, // suppose its zero the || will gives error so we can use NUllis Coesical 
+  numberOfGuest: 23,
+}
+
+const rest2 = {
+  name: 'Vivek',
+  Ownber: 'Johan cena'
+}
+
+//Actual way to write 
+
+// rest1.numberOfGuest = rest1.numberOfGuest || 10;
+// rest2.numberOfGuest = rest2.numberOfGuest || 10;
+
+//shorter  way to write 
+
+// rest1.numberOfGuest ||=10;
+// rest2.numberOfGuest ||=10;
+
+//Using Nullsh Coesial 
+
+// rest1.numberOfGuest ??=10;
+// rest2.numberOfGuest ??=10;
+
+// rest1.Ownber = rest1.Ownber && '<anonymous>'; //return Undefined old Solution
+// rest2.Ownber = rest2.Ownber && '<Anonymous>';
+
+rest1.Ownber &&='<anoymous>'; //return Zeeo es2020 better solution
+rest2.Ownber &&='<anyousssss>';
+
+
+
+console.log(rest1);
+console.log(rest2);
+
+
+
 
 
 
