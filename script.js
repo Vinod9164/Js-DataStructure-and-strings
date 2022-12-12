@@ -37,6 +37,11 @@ const restaurant = {
 
      orderpastas : function ( int1,int2,int3){
       console.log(`here is your dilicious pastas ${int1},${int2},${int3}`)
+     },
+
+     orderPizzas1 : function(mainCourse,...restOnes){
+     console.log(mainCourse);
+     console.log(restOnes);
      }
 };
 
@@ -56,32 +61,32 @@ restaurant.orderDelivery({
 
 // ObJect Destructuring
 
-const {openingHours,name,categories} = restaurant;
+// const {openingHours,name,categories} = restaurant;
 
-console.log(name,openingHours,categories);
+// console.log(name,openingHours,categories);
 
-//want to call diffent var name
+// //want to call diffent var name
 
-const {name:Vinod,openingHours:hours,categories:Books} = restaurant;
-console.log(Vinod,hours,Books);
+// const {name:Vinod,openingHours:hours,categories:Books} = restaurant;
+// console.log(Vinod,hours,Books);
 
 //Using Default Value
 
-const {menu = [],starterMenu:StrtMenu = []} = restaurant;
-console.log(menu,StrtMenu);
+// const {menu = [],starterMenu:StrtMenu = []} = restaurant;
+// console.log(menu,StrtMenu);
 
-//Mutating Variable
-let a = 1000;
-let b = 999;
-const obj = { a: 22, b: 7, c: 14 };
+// //Mutating Variable
+// let a = 1000;
+// let b = 999;
+// const obj = { a: 22, b: 7, c: 14 };
 
-({a,b} = obj)
+// ({a,b} = obj)
 
-console.log(a,b);
+// console.log(a,b);
 
-//Nested Destructring
- const {fri:{open : o,close : c}} = openingHours;
- console.log(o,c);
+// //Nested Destructring
+//  const {fri:{open : o,close : c}} = openingHours;
+//  console.log(o,c);
 // -------------------------------------------------------------------------------------------------------------------
 // //Array destructing 
 
@@ -146,54 +151,145 @@ console.log(a,b);
 
 //spread Operators
 
-const arr = [1,2,3,4];
-// console.log(1,2,arr[0],arr[1],arr[2],arr[3],arr[4]);
-console.log(1,2,...arr);
-console.log(...arr);
+// const arr = [1,2,3,4];
+// // console.log(1,2,arr[0],arr[1],arr[2],arr[3],arr[4]);
+// console.log(1,2,...arr);
+// console.log(...arr);
 
-const newarr = [...restaurant.mainMenu,'gnocci'];
-console.log(newarr);
+// const newarr = [...restaurant.mainMenu,'gnocci'];
+// console.log(newarr);
 
-//cpy array
+// //cpy array
 
-const cpyarr = [...restaurant.mainMenu];
-console.log(cpyarr);
+// const cpyarr = [...restaurant.mainMenu];
+// console.log(cpyarr);
 
 //join two arrays
 
-const joinArr = [...restaurant.mainMenu,...restaurant.starterMenu];
-console.log(joinArr);
+// const joinArr = [...restaurant.mainMenu,...restaurant.starterMenu];
+// console.log(joinArr);
 
-//iterable array,strings,map not objects
+// //iterable array,strings,map not objects
 
-const str = 'Jonas';
-const StrA=  [...str,'','S.'];
-console.log(StrA);
+// const str = 'Jonas';
+// const StrA=  [...str,'','S.'];
+// console.log(StrA);
 
 //not posibble to use inside object literals ${...x} not allowed
 
 
 //Real world expanle
-const ingredients = [
-  // prompt("will make pasta int1"),
-  // prompt("will make pasta int2"),
-  // prompt("will make pasta int3")
-];
-console.log(ingredients);
+// const ingredients = [
+//   // prompt("will make pasta int1"),
+//   // prompt("will make pasta int2"),
+//   // prompt("will make pasta int3")
+// ];
+// console.log(ingredients);
 
-restaurant.orderpastas(ingredients[0],ingredients[1],ingredients[2]);
-restaurant.orderpastas(...ingredients);
+// restaurant.orderpastas(ingredients[0],ingredients[1],ingredients[2]);
+// restaurant.orderpastas(...ingredients);
 // /
 
 //Object
 
-const restNew = {since:1994,...restaurant,founder:'vimzz'};
-console.log(restNew);
+// const restNew = {since:1994,...restaurant,founder:'vimzz'};
+// console.log(restNew);
 
-//copy
+// //copy
 
-const restCopy = {...restaurant};
-restCopy.name = 'restorente india';
-console.log(restCopy.name);
-console.log(restaurant.name);
+// const restCopy = {...restaurant};
+// restCopy.name = 'restorente india';
+// console.log(restCopy.name);
+// console.log(restaurant.name);
 
+
+
+
+// --------------------------------------------------------------------------------------------------
+
+// Rest operator
+
+//Part 1 ) Destructing 
+
+//spread operator because we are writing in right side of =
+// const arr1 = [1,2,...[4,5],6];
+
+// //left side of = reset operator
+
+// const [a,b, ...others] = [1,2,3,4,5];
+// console.log(others);
+
+// //use ... on both side \
+
+// const [Focaccia, ,GarlicBread,...others1]= [...restaurant.starterMenu,...restaurant.mainMenu]
+// console.log(Focaccia,GarlicBread,others1);
+
+// //onjects 
+
+// const {sat,...othersWeekend} = restaurant.openingHours;
+// console.log(othersWeekend);
+
+// //Part2 Fucntions
+// const functA = function(...Numbers){
+//   let sum = 0;
+//   for(let i = 0;i<Numbers.length;i++){
+//     sum = sum+Numbers[i]
+//   }
+//   console.log(sum)
+
+
+// }
+
+// functA(2,3);
+// functA(2,3,4,5,6,7,8,9,1);
+// functA(-1,3,-6);
+// const x = [1,2,3];
+// functA(...x);
+
+// restaurant.orderPizzas1('mushfiqur','rem','ddd',1,2,3,4);
+// restaurant.orderPizzas1('mushrooms');
+
+// ----------------------------------------------------------------------------------------------------
+
+console.log('---------------AND--------------')
+// shortcircuiting && and || operators
+
+console.log(3 || 'jonas'); // both are true but first value is true so its considered
+console.log('' || 'jonas');//first value is falsy
+console.log(true || 0);//first value is truthy
+console.log(undefined || null);//first value is falsy and both are falsy so last value is considered
+console.log(null||undefined||0||''||'jonas');//search for first truthy value 
+
+// suppose we assign restaurant.numbg to to variable then it will res=turn true
+
+restaurant.numberguest =23;
+
+const guest1 = restaurant.numberguest ? restaurant.numberguest : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numberguest || 10;
+console.log(guest2);
+
+console.log('----------AND----------')
+
+console.log(0 && 'jonas'); //0 is a falsy value if first value is false then shortcircuit will stop and return is
+console.log(7 && 'jonas');//Jonas because if first value is truthy then its continues till last truthy
+console.log( 7 && 'jonas' && null && 'welcome'); //returns null
+
+if(restaurant.orderPizzas1){
+  restaurant.orderPizzas1('mushrooms','spinach');
+}
+
+restaurant.orderPizzas1 && restaurant.orderPizzas1('mushrooms1','spinach');
+
+
+console.log('------------------NULLISH COESIAL operatoRRR-------------');
+
+restaurant.numberguest = 0; // suppose 0 then gives a error as 10 can try with null and undefined for nullish
+
+// const guests = restaurant.numberguest || 10;
+//NUllish null and undefined not 0 and ''
+const guests = restaurant.numberguest ?? 10;
+
+console.log(guests);
+console.log("-----------------Nulllish Coesial------")
