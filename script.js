@@ -98,6 +98,7 @@ console.log(rest2);
 
 
 
+
 // ObJect Destructuring
 
 // const {openingHours,name,categories} = restaurant;
