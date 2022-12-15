@@ -4,6 +4,24 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+
+  const Weekdays = ['mon','tue','wed','thu','fri','sat','sun']
+
+  const openingHours= {
+    [Weekdays[2]]: {
+      open: 12,
+      close: 22,
+    },
+    [Weekdays[4]]: {
+      open: 11,
+      close: 23,
+    },
+    [`day ${2+4}`]: {
+      open: 0, // Open 24 hours 
+      close: 24,
+    },
+  }
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano Vinod',
@@ -11,37 +29,27 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours 
-      close: 24,
-    },
-  },
+ 
+  // openingHours : openingHours,
+  // ES6 enhanced object literl
+  openingHours,
 
     //create a function that takes params 
     //adding default parms if this cannot be destructed 
-    orderDelivery : function ({starterIndex = 1,mainIndex = 1,time = '12:00',address ='somewhere'}){
-      console.log(`${this.starterMenu[starterIndex]} ${this.mainMenu[mainIndex]} ${address} ${time}`);
+    orderDelivery({starterIndex = 1,mainIndex = 1,time = '12:00',address ='somewhere'}){
+      // console.log(`${this.starterMenu[starterIndex]} ${this.mainMenu[mainIndex]} ${address} ${time}`);
      },
 
-     orderpastas : function ( int1,int2,int3){
+     orderpastas( int1,int2,int3){
       console.log(`here is your dilicious pastas ${int1},${int2},${int3}`)
      },
 
-     orderPizzas1 : function(mainCourse,...restOnes){
-     console.log(mainCourse);
-     console.log(restOnes);
+     orderPizzas1(mainCourse,...restOnes){
+    //  console.log(mainCourse);
+    //  console.log(restOnes);
      }
 };
 
@@ -90,8 +98,8 @@ rest2.Ownber &&='<anyousssss>';
 
 
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
 
 
 
@@ -289,45 +297,59 @@ console.log(rest2);
 
 // ----------------------------------------------------------------------------------------------------
 
-console.log('---------------AND--------------')
-// shortcircuiting && and || operators
+// console.log('---------------AND--------------')
+// // shortcircuiting && and || operators
 
-console.log(3 || 'jonas'); // both are true but first value is true so its considered
-console.log('' || 'jonas');//first value is falsy
-console.log(true || 0);//first value is truthy
-console.log(undefined || null);//first value is falsy and both are falsy so last value is considered
-console.log(null||undefined||0||''||'jonas');//search for first truthy value 
+// console.log(3 || 'jonas'); // both are true but first value is true so its considered
+// console.log('' || 'jonas');//first value is falsy
+// console.log(true || 0);//first value is truthy
+// console.log(undefined || null);//first value is falsy and both are falsy so last value is considered
+// console.log(null||undefined||0||''||'jonas');//search for first truthy value 
 
-// suppose we assign restaurant.numbg to to variable then it will res=turn true
+// // suppose we assign restaurant.numbg to to variable then it will res=turn true
 
-restaurant.numberguest =23;
+// restaurant.numberguest =23;
 
-const guest1 = restaurant.numberguest ? restaurant.numberguest : 10;
-console.log(guest1);
+// const guest1 = restaurant.numberguest ? restaurant.numberguest : 10;
+// console.log(guest1);
 
-const guest2 = restaurant.numberguest || 10;
-console.log(guest2);
+// const guest2 = restaurant.numberguest || 10;
+// console.log(guest2);
 
-console.log('----------AND----------')
+// console.log('----------AND----------')
 
-console.log(0 && 'jonas'); //0 is a falsy value if first value is false then shortcircuit will stop and return is
-console.log(7 && 'jonas');//Jonas because if first value is truthy then its continues till last truthy
-console.log( 7 && 'jonas' && null && 'welcome'); //returns null
+// console.log(0 && 'jonas'); //0 is a falsy value if first value is false then shortcircuit will stop and return is
+// console.log(7 && 'jonas');//Jonas because if first value is truthy then its continues till last truthy
+// console.log( 7 && 'jonas' && null && 'welcome'); //returns null
 
-if(restaurant.orderPizzas1){
-  restaurant.orderPizzas1('mushrooms','spinach');
-}
+// if(restaurant.orderPizzas1){
+//   restaurant.orderPizzas1('mushrooms','spinach');
+// }
 
-restaurant.orderPizzas1 && restaurant.orderPizzas1('mushrooms1','spinach');
+// restaurant.orderPizzas1 && restaurant.orderPizzas1('mushrooms1','spinach');
 
 
-console.log('------------------NULLISH COESIAL operatoRRR-------------');
+// console.log('------------------NULLISH COESIAL operatoRRR-------------');
 
-restaurant.numberguest = 0; // suppose 0 then gives a error as 10 can try with null and undefined for nullish
+// restaurant.numberguest = 0; // suppose 0 then gives a error as 10 can try with null and undefined for nullish
 
-// const guests = restaurant.numberguest || 10;
-//NUllish null and undefined not 0 and ''
-const guests = restaurant.numberguest ?? 10;
+// // const guests = restaurant.numberguest || 10;
+// //NUllish null and undefined not 0 and ''
+// const guests = restaurant.numberguest ?? 10;
 
-console.log(guests);
-console.log("-----------------Nulllish Coesial------")
+// console.log(guests);
+// console.log("-----------------Nulllish Coesial------");
+
+
+// JS For loops 
+
+console.log('-------------Loops start here---------------');
+
+// const menu = [...restaurant.starterMenu,...restaurant.mainMenu];
+
+// for(const [i,el] of menu.entries()) {
+// // console.log(item);
+// // console.log(menu.entries());
+// console.log([...menu.entries()]);
+// console.log(`${item[0]+1}:${item[1]}`);
+// }
