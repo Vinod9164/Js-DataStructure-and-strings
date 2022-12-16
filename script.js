@@ -5,7 +5,9 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 
-  const Weekdays = ['mon','tue','wed','thu','fri','sat','sun']
+  const Weekdays = ['mon','tue','wed','thu','fri','sat','sun'];
+
+ 
 
   const openingHours= {
     [Weekdays[2]]: {
@@ -16,7 +18,7 @@ const flights =
       open: 11,
       close: 23,
     },
-    [`day ${2+4}`]: {
+    [Weekdays[5]]: {
       open: 0, // Open 24 hours 
       close: 24,
     },
@@ -75,6 +77,81 @@ const rest2 = {
   Ownber: 'Johan cena'
 }
 
+
+// console.log('-----------------Looping Objects-----------------------') 
+
+
+//Property names
+const properties = Object.keys(openingHours);
+
+console.log(properties);
+
+let openStr = `we are open on ${properties.length} days : `
+
+for(const day of properties){
+ openStr += `${day},`;
+}
+console.log(openStr);
+
+const values = Object.values(openingHours)
+console.log(values);
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// for(const x of entries){
+//   console.log(x);
+// }
+
+//destructing  key and value 
+for(const [key1,{open,close}] of entries){
+  console.log(`on ${key1} we open at ${open} and closes at ${close}`);
+}
+
+
+
+
+// console.log('-----------------Looping Objects-----------------------') 
+
+// Optional Chaining
+
+// console.log('---------------optional Chaining in JS -----------');
+
+// console.log(restaurant.openingHours.mon.open); //monday doesnt exits so undefined .open error
+
+//so here we can use a if conditon
+
+// if(restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open); //doesnt exits so doent prints anything
+
+// // if(restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
+
+// if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open)
+
+// //With optional chaining
+
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
+
+// const days = ['mon','tue','wed','thu','fri','sat','sun']
+
+// for(const day of days){
+//   console.log(day);
+//   const open  = restaurant.openingHours[day]?.open  ?? 'closed' // set a default value for not show undefined
+//   console.log(open); // use nullish cohesial to avoid restaurant closed at saturday because of Zero
+// }
+
+// //check the methods 
+// console.log(restaurant.order?.(0,1) ?? 'method not found');
+// console.log(restaurant.order1?.(2,1) ?? 'method not found');
+
+
+// // check for Arrays
+
+// let user  = [{name:'Vinod',email:'vinod8797@gmail.com'}];
+
+// console.log(user[0]?.name ?? 'user not found');
+// console.log(user[5]?.name ?? 'user not found');
+
 //Actual way to write 
 
 // rest1.numberOfGuest = rest1.numberOfGuest || 10;
@@ -93,8 +170,8 @@ const rest2 = {
 // rest1.Ownber = rest1.Ownber && '<anonymous>'; //return Undefined old/soution
 // rest2.Ownber = rest2.Ownber && '<Anonymous>';
 
-rest1.Ownber &&='<anoymous>'; //return Zeeo es2020 better solution
-rest2.Ownber &&='<anyousssss>';
+// rest1.Ownber &&='<anoymous>'; //return Zeeo es2020 better solution
+// rest2.Ownber &&='<anyousssss>';
 
 
 
@@ -343,7 +420,7 @@ rest2.Ownber &&='<anyousssss>';
 
 // JS For loops 
 
-console.log('-------------Loops start here---------------');
+// console.log('-------------Loops start here---------------');
 
 // const menu = [...restaurant.starterMenu,...restaurant.mainMenu];
 
