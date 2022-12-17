@@ -82,31 +82,67 @@ const rest2 = {
 
 
 //Property names
-const properties = Object.keys(openingHours);
+// const properties = Object.keys(openingHours);
 
-console.log(properties);
+// console.log(properties);
 
-let openStr = `we are open on ${properties.length} days : `
+// let openStr = `we are open on ${properties.length} days : `
 
-for(const day of properties){
- openStr += `${day},`;
-}
-console.log(openStr);
+// for(const day of properties){
+//  openStr += `${day},`;
+// }
+// console.log(openStr);
 
-const values = Object.values(openingHours)
-console.log(values);
+// const values = Object.values(openingHours)
+// console.log(values);
 
-const entries = Object.entries(openingHours);
-console.log(entries);
+// const entries = Object.entries(openingHours);
+// console.log(entries);
 
 // for(const x of entries){
 //   console.log(x);
 // }
 
 //destructing  key and value 
-for(const [key1,{open,close}] of entries){
-  console.log(`on ${key1} we open at ${open} and closes at ${close}`);
-}
+// for(const [key1,{open,close}] of entries){
+//   console.log(`on ${key1} we open at ${open} and closes at ${close}`);
+// }
+
+
+//console.log('----------SETS--------------');
+
+// const orderset = new Set(['pastas','pizza','pasta','banana','pizza','pizza']);
+// console.log(orderset);
+
+//strings are also iterable
+// console.log(new Set('Jonas'));
+
+//Set could also be empty
+// console.log(new Set());
+//size and lenght
+// console.log(orderset.size);
+//Has 
+// console.log(orderset.has('pizza'));
+// console.log(orderset.has('vinod'));
+//add to Set
+// console.log(orderset.add('vivek'));
+// orderset.add('vivek')//only first one gets added 
+// orderset.add('vivek')//this one is basically ignored because it should be unique
+//added twice 
+// orderset.delete('pizza');
+// orderset.clear();
+// console.log(orderset);
+
+// for(const order of orderset){
+//   console.log(order);
+// }
+
+//
+// const staff = ['waiter','cook','staff','manager','waiter','waiter'];
+// const uniqueStaff = [...new Set(staff)];
+// console.log(uniqueStaff);
+// console.log(new Set(['waiter','cook','staff','manager','waiter','waiter']).size);
+// console.log(new Set('vinod').size)
 
 
 
