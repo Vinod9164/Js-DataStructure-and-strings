@@ -127,8 +127,31 @@ console.log(newFlight)
 const newFlight2 = flight.replaceAll('door','gate');
 console.log(newFlight2)
 //with regex
+console.log( flight.replace(/door/g,'gate')) //g global replca or all replace
 
+//Boolean
+const plane1 = 'A320meo';
+console.log(plane1.includes('320'));
+console.log(plane1.includes('Tata'));
+console.log(plane1.startsWith('A32'));
 
+if(plane1.startsWith('A3') && plane1.endsWith('meo')){
+  console.log('Its coorect ');
+}
+
+//practice 
+const checkBaggage = function (items) {
+  const check = items.toLowerCase(); //because case sensitive thats y convertign to lowercase helps a lot
+  if(check.includes('knife') || check.includes('gun')){
+    console.log('U are under arrest')
+  }else{
+    console.log('Welcome On Board')
+  }
+
+}
+checkBaggage('I have a bomb and gun');
+checkBaggage('food bat KnIfe');
+checkBaggage('clothes adn books')
 
 
 
