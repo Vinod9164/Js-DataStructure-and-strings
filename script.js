@@ -79,39 +79,39 @@ const rest2 = {
 
 //Maps 2 
 //can pass an array directly
-const question = new Map([
-  ['question', 'Best programing lang in world'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'Javascript'],
-  ['correct', 3],
-  [true, 'Correct answer'],
-  [false, 'try Again']
-]);
-console.log(question);
+// const question = new Map([
+//   ['question', 'Best programing lang in world'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'Javascript'],
+//   ['correct', 3],
+//   [true, 'Correct answer'],
+//   [false, 'try Again']
+// ]);
+// console.log(question);
 
 //there is another easier way to convert objects to Maps
-console.log(Object.entries(openingHours));
-//same as an array of array 
-let hoursMap = new Map(Object.entries(openingHours));
-console.log(hoursMap);
+// console.log(Object.entries(openingHours));
+// //same as an array of array 
+// let hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
 
 // Maps are also iterbale
-console.log(question.get('question'))
+// console.log(question.get('question'))
 
-for (const [key, value] of question) {
-  if (typeof key === 'number') console.log(`Answer ${key} : ${value}`)
-}
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key} : ${value}`)
+// }
 
-const answer = Number(prompt('your Answer'));
-console.log(question.get(question.get('correct') === answer)); //if true it access true from question map is false it access false from map
+// const answer = Number(prompt('your Answer'));
+// console.log(question.get(question.get('correct') === answer)); //if true it access true from question map is false it access false from map
 
 //convert back to an Array
 
-console.log([...question]);
-console.log([...question.entries()]);//u will Map Iterator in console so put an spred operator for it
-console.log([...question.values()]);
-console.log([...question.keys()]);
+// console.log([...question]);
+// console.log([...question.entries()]);//u will Map Iterator in console so put an spred operator for it
+// console.log([...question.values()]);
+// console.log([...question.keys()]);
 
 //console.log('-----------Maps-------------);
 
