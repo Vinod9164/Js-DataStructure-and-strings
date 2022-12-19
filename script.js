@@ -5,24 +5,24 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 
-  const Weekdays = ['mon','tue','wed','thu','fri','sat','sun'];
+const Weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
- 
 
-  const openingHours= {
-    [Weekdays[2]]: {
-      open: 12,
-      close: 22,
-    },
-    [Weekdays[4]]: {
-      open: 11,
-      close: 23,
-    },
-    [Weekdays[5]]: {
-      open: 0, // Open 24 hours 
-      close: 24,
-    },
-  }
+
+const openingHours = {
+  [Weekdays[2]]: {
+    open: 12,
+    close: 22,
+  },
+  [Weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [Weekdays[5]]: {
+    open: 0, // Open 24 hours 
+    close: 24,
+  },
+}
 
 // Data needed for first part of the section
 const restaurant = {
@@ -34,36 +34,36 @@ const restaurant = {
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
- 
+
   // openingHours : openingHours,
   // ES6 enhanced object literl
   openingHours,
 
-    //create a function that takes params 
-    //adding default parms if this cannot be destructed 
-    orderDelivery({starterIndex = 1,mainIndex = 1,time = '12:00',address ='somewhere'}){
-      // console.log(`${this.starterMenu[starterIndex]} ${this.mainMenu[mainIndex]} ${address} ${time}`);
-     },
+  //create a function that takes params 
+  //adding default parms if this cannot be destructed 
+  orderDelivery({ starterIndex = 1, mainIndex = 1, time = '12:00', address = 'somewhere' }) {
+    // console.log(`${this.starterMenu[starterIndex]} ${this.mainMenu[mainIndex]} ${address} ${time}`);
+  },
 
-     orderpastas( int1,int2,int3){
-      console.log(`here is your dilicious pastas ${int1},${int2},${int3}`)
-     },
+  orderpastas(int1, int2, int3) {
+    console.log(`here is your dilicious pastas ${int1},${int2},${int3}`)
+  },
 
-     orderPizzas1(mainCourse,...restOnes){
+  orderPizzas1(mainCourse, ...restOnes) {
     //  console.log(mainCourse);
     //  console.log(restOnes);
-     }
+  }
 };
 
 restaurant.orderDelivery({
-  time:'22:30',
-  address:'Bangalore',
-  mainIndex:2,
-  starterIndex:3
+  time: '22:30',
+  address: 'Bangalore',
+  mainIndex: 2,
+  starterIndex: 3
 })
 
 restaurant.orderDelivery({
-  mainIndex:2,
+  mainIndex: 2,
 })
 
 const rest1 = {
@@ -77,42 +77,77 @@ const rest2 = {
   Ownber: 'Johan cena'
 }
 
+//Maps 2 
+//can pass an array directly
+const question = new Map([
+  ['question', 'Best programing lang in world'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['correct', 3],
+  [true, 'Correct answer'],
+  [false, 'try Again']
+]);
+console.log(question);
+
+//there is another easier way to convert objects to Maps
+console.log(Object.entries(openingHours));
+//same as an array of array 
+let hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+// Maps are also iterbale
+console.log(question.get('question'))
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key} : ${value}`)
+}
+
+const answer = Number(prompt('your Answer'));
+console.log(question.get(question.get('correct') === answer)); //if true it access true from question map is false it access false from map
+
+//convert back to an Array
+
+console.log([...question]);
+console.log([...question.entries()]);//u will Map Iterator in console so put an spred operator for it
+console.log([...question.values()]);
+console.log([...question.keys()]);
 
 //console.log('-----------Maps-------------);
 
 const rest = new Map();
-rest.set('name','Classico')
-rest.set(1,'Frenze ,Italy');
+rest.set('name', 'Classico')
+rest.set(1, 'Frenze ,Italy');
 // console.log(rest.set(2,'Lisbon Portugal'));
 
 rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-.set('open', 11)
-.set('close', 23)
-.set(true,'We are Opend D:')
-.set(false,'We are closed D:')
-console.log(rest.get('name'))
-console.log(rest.get(true))
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are Opend D:')
+  .set(false, 'We are closed D:')
+// console.log(rest.get('name'))
+// console.log(rest.get(true))
 // console.log(rest.get('true'))//data types matter true is boolean
 
 const time = 21;
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
 //map delete and contains
 
-console.log(rest.has('categories'));
+// console.log(rest.has('categories'));
 rest.delete(2);
 // rest.clear();
 // rest.set([1,2],'Test'); doesnt Works because in Memory [1,2] and get7[1,2] are not same in memory
 //try to acess  Dom since it is also same
-rest.set(document.querySelector('h1'),'Heading');
-const arr1 = [1,2];
-console.log(rest.set(arr1,'Test'));
-console.log(rest);//Has and dlete updated map
-console.log(rest.size);
+rest.set(document.querySelector('h1'), 'Heading');
+const arr1 = [1, 2];
+// console.log(rest.set(arr1,'Test'));
+// console.log(rest);//Has and dlete updated map
+// console.log(rest.size);
 
 
 
-// console.log('-----------------Looping Objects-----------------------') 
+// console.log('-----------------Looping Objects-----------------------')
 
 
 //Property names
@@ -137,7 +172,7 @@ console.log(rest.size);
 //   console.log(x);
 // }
 
-//destructing  key and value 
+//destructing  key and value
 // for(const [key1,{open,close}] of entries){
 //   console.log(`on ${key1} we open at ${open} and closes at ${close}`);
 // }
@@ -155,14 +190,14 @@ console.log(rest.size);
 // console.log(new Set());
 //size and lenght
 // console.log(orderset.size);
-//Has 
+//Has
 // console.log(orderset.has('pizza'));
 // console.log(orderset.has('vinod'));
 //add to Set
 // console.log(orderset.add('vivek'));
-// orderset.add('vivek')//only first one gets added 
+// orderset.add('vivek')//only first one gets added
 // orderset.add('vivek')//this one is basically ignored because it should be unique
-//added twice 
+//added twice
 // orderset.delete('pizza');
 // orderset.clear();
 // console.log(orderset);
@@ -181,7 +216,7 @@ console.log(rest.size);
 
 
 
-// console.log('-----------------Looping Objects-----------------------') 
+// console.log('-----------------Looping Objects-----------------------')
 
 // Optional Chaining
 
@@ -210,7 +245,7 @@ console.log(rest.size);
 //   console.log(open); // use nullish cohesial to avoid restaurant closed at saturday because of Zero
 // }
 
-// //check the methods 
+// //check the methods
 // console.log(restaurant.order?.(0,1) ?? 'method not found');
 // console.log(restaurant.order1?.(2,1) ?? 'method not found');
 
@@ -222,17 +257,17 @@ console.log(rest.size);
 // console.log(user[0]?.name ?? 'user not found');
 // console.log(user[5]?.name ?? 'user not found');
 
-//Actual way to write 
+//Actual way to write
 
 // rest1.numberOfGuest = rest1.numberOfGuest || 10;
 // rest2.numberOfGuest = rest2.numberOfGuest || 10;
 
-//shorter  way to write 
+//shorter  way to write
 
 // rest1.numberOfGuest ||=10;
 // rest2.numberOfGuest ||=10;
 
-//Using Nullsh Coesial 
+//Using Nullsh Coesial
 
 // rest1.numberOfGuest ??=10;
 // rest2.numberOfGuest ??=10;
@@ -281,22 +316,22 @@ console.log(rest.size);
 //  const {fri:{open : o,close : c}} = openingHours;
 //  console.log(o,c);
 // -------------------------------------------------------------------------------------------------------------------
-// //Array destructing 
+// //Array destructing
 
 
-// //normal way 
+// //normal way
 // const arr = [1, 2, 3, 4];
 // const a = arr[0];
 // const b = arr[1];
 // const c = arr[2];
 // const d = arr[3];
 
-// //using destructing 
+// //using destructing
 // const [x, y, z, w] = arr;
 // console.log(x, y, z, w);
 // console.log(arr);
 
-// //destructin from above array 
+// //destructin from above array
 
 // const [first, second] = restaurant.categories;
 // console.log(first, second);
@@ -337,7 +372,7 @@ console.log(rest.size);
 
 
 
-// ///Destucturinng Objects 
+// ///Destucturinng Objects
 
 
 // ----------------------------------------------------------------------------------------------------
@@ -402,7 +437,7 @@ console.log(rest.size);
 
 // Rest operator
 
-//Part 1 ) Destructing 
+//Part 1 ) Destructing
 
 //spread operator because we are writing in right side of =
 // const arr1 = [1,2,...[4,5],6];
@@ -417,7 +452,7 @@ console.log(rest.size);
 // const [Focaccia, ,GarlicBread,...others1]= [...restaurant.starterMenu,...restaurant.mainMenu]
 // console.log(Focaccia,GarlicBread,others1);
 
-// //onjects 
+// //onjects
 
 // const {sat,...othersWeekend} = restaurant.openingHours;
 // console.log(othersWeekend);
@@ -451,7 +486,7 @@ console.log(rest.size);
 // console.log('' || 'jonas');//first value is falsy
 // console.log(true || 0);//first value is truthy
 // console.log(undefined || null);//first value is falsy and both are falsy so last value is considered
-// console.log(null||undefined||0||''||'jonas');//search for first truthy value 
+// console.log(null||undefined||0||''||'jonas');//search for first truthy value
 
 // // suppose we assign restaurant.numbg to to variable then it will res=turn true
 
@@ -488,7 +523,7 @@ console.log(rest.size);
 // console.log("-----------------Nulllish Coesial------");
 
 
-// JS For loops 
+// JS For loops
 
 // console.log('-------------Loops start here---------------');
 
