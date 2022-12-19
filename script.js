@@ -81,45 +81,93 @@ const rest2 = {
 
 //Strings 
 
+
+
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 
-console.log(plane[0]);
-console.log('A619'[0]);
+//upper and lowercase 
+console.log(airline.toLowerCase());
+console.log('vinod'.toUpperCase());
 
-console.log(airline.length);
-console.log('Vinod'.length);
+//fix capitalism in name
 
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.indexOf('Air'));
-console.log(airline.indexOf('air')); //case sensitive
+const passenger = 'jOnAs'; //Jonas should look like this 
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+console.log(passengerLower.slice(1));
 
-console.log(airline.slice(4));
-console.log(airline.slice(4,7));
+const correctUserName = function (test) {
+  const constLower1 = test.toLowerCase();
+  const passengerCorrect = constLower1[0].toUpperCase() + constLower1.slice(1);
+  return passengerCorrect
+}
+console.log(correctUserName('vInOd'));
+
+//emial
+const email = 'vinod8797@gmail.com';
+const loginemail = ' Vinod8797@Gmail.com ';
+const emialLower = loginemail.toLowerCase();
+const spaceRemove = emialLower.trim();
+console.log(spaceRemove);
+
+//soluton in single line 
+const solutioninsingle = email.toLowerCase().trim();
+console.log(solutioninsingle);
+
+//replacing
+const cur = '10,00rs';
+const newcur = cur.replace(',','.').replace('rs','dr');
+console.log(newcur);
+
+const flight = ' door door door door ate eat';
+const newFlight = flight.replace('door','gate');
+console.log(newFlight)
+const newFlight2 = flight.replaceAll('door','gate');
+console.log(newFlight2)
+//with regex
+
+
+
+
+
+// console.log(plane[0]);
+// console.log('A619'[0]);
+
+// console.log(airline.length);
+// console.log('Vinod'.length);
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Air'));
+// console.log(airline.indexOf('air')); //case sensitive
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4,7));
 
 //if we dont know the index then 
-console.log(airline.slice(0,airline.indexOf('')));
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// console.log(airline.slice(0,airline.indexOf('')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-console.log(airline.slice(-2));
-console.log(airline.slice(1,-2));
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1,-2));
 
-const checkmiddleSeat= (seat) =>{
-const s = seat.slice(-1);
-if(s === 'B' || s ==='E')
-console.log('You got midle seat')
-else console.log('you are lucky')
-}
-checkmiddleSeat('123B');
-checkmiddleSeat('121C');
-checkmiddleSeat('143E');
+// const checkmiddleSeat= (seat) =>{
+// const s = seat.slice(-1);
+// if(s === 'B' || s ==='E')
+// console.log('You got midle seat')
+// else console.log('you are lucky')
+// }
+// checkmiddleSeat('123B');
+// checkmiddleSeat('121C');
+// checkmiddleSeat('143E');
 
 //there is a process called Boxing convert string to string object
 
-console.log(new String('Jonas'));
-console.log(typeof new String('jonas'));
-console.log(typeof new String('jonas').slice(-1))
+// console.log(new String('Jonas'));
+// console.log(typeof new String('jonas'));
+// console.log(typeof new String('jonas').slice(-1))
 //Maps 2 
 //can pass an array directly
 // const question = new Map([
