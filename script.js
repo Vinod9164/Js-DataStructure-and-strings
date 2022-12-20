@@ -1,8 +1,22 @@
 'use strict';
 
 // Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+const flights = '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const code = function (str){
+ return str.slice(0,3).toUpperCase()
+
+}
+
+for(const flight of flights.split('+')){
+const[type,from,To,Time] = (flight.split(';'));
+const output = `${type.startsWith('_Delayed') ? '🔴':' '}${type.replaceAll('_',' ')} ${code(from)} ${code(To)} ${Time.replace(':','H')}`.padStart(51);
+console.log(output);
+}
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
 
 
 const Weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
@@ -83,143 +97,149 @@ const rest2 = {
 
 
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
+//flights 2 nd tasks 
+
+// const filteredFlights = flights.split('+')
+// console.log(filteredFlights)
+
+
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
 //upper and lowercase 
-console.log(airline.toLowerCase());
-console.log('vinod'.toUpperCase());
+// console.log(airline.toLowerCase());
+// console.log('vinod'.toUpperCase());
 
 //fix capitalism in name
 
-const passenger = 'jOnAs'; //Jonas should look like this 
-const passengerLower = passenger.toLowerCase();
-const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
-console.log(passengerCorrect);
-console.log(passengerLower.slice(1));
+// const passenger = 'jOnAs'; //Jonas should look like this 
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+// console.log(passengerLower.slice(1));
 
-const correctUserName = function (test) {
-  const constLower1 = test.toLowerCase();
-  const passengerCorrect = constLower1[0].toUpperCase() + constLower1.slice(1);
-  return passengerCorrect
-}
-console.log(correctUserName('vInOd'));
+// const correctUserName = function (test) {
+//   const constLower1 = test.toLowerCase();
+//   const passengerCorrect = constLower1[0].toUpperCase() + constLower1.slice(1);
+//   return passengerCorrect
+// }
+// console.log(correctUserName('vInOd'));
 
 //emial
-const email = 'vinod8797@gmail.com';
-const loginemail = ' Vinod8797@Gmail.com ';
-const emialLower = loginemail.toLowerCase();
-const spaceRemove = emialLower.trim();
-console.log(spaceRemove);
+// const email = 'vinod8797@gmail.com';
+// const loginemail = ' Vinod8797@Gmail.com ';
+// const emialLower = loginemail.toLowerCase();
+// const spaceRemove = emialLower.trim();
+// console.log(spaceRemove);
 
 //soluton in single line 
-const solutioninsingle = email.toLowerCase().trim();
-console.log(solutioninsingle);
+// const solutioninsingle = email.toLowerCase().trim();
+// console.log(solutioninsingle);
 
-//replacing
-const cur = '10,00rs';
-const newcur = cur.replace(',','.').replace('rs','dr');
-console.log(newcur);
+// //replacing
+// const cur = '10,00rs';
+// const newcur = cur.replace(',','.').replace('rs','dr');
+// console.log(newcur);
 
-const flight = ' door door door door ate eat';
-const newFlight = flight.replace('door','gate');
-console.log(newFlight)
-const newFlight2 = flight.replaceAll('door','gate');
-console.log(newFlight2)
+// const flight = ' door door door door ate eat';
+// const newFlight = flight.replace('door','gate');
+// console.log(newFlight)
+// const newFlight2 = flight.replaceAll('door','gate');
+// console.log(newFlight2)
 //with regex
-console.log( flight.replace(/door/g,'gate')) //g global replca or all replace
+// console.log( flight.replace(/door/g,'gate')) //g global replca or all replace
 
-//Boolean
-const plane1 = 'A320meo';
-console.log(plane1.includes('320'));
-console.log(plane1.includes('Tata'));
-console.log(plane1.startsWith('A32'));
+// //Boolean
+// const plane1 = 'A320meo';
+// console.log(plane1.includes('320'));
+// console.log(plane1.includes('Tata'));
+// console.log(plane1.startsWith('A32'));
 
-if(plane1.startsWith('A3') && plane1.endsWith('meo')){
-  console.log('Its coorect ');
-}
+// if(plane1.startsWith('A3') && plane1.endsWith('meo')){
+//   console.log('Its coorect ');
+// }
 
-//practice 
-const checkBaggage = function (items) {
-  const check = items.toLowerCase(); //because case sensitive thats y convertign to lowercase helps a lot
-  if(check.includes('knife') || check.includes('gun')){
-    console.log('U are under arrest')
-  }else{
-    console.log('Welcome On Board')
-  }
+// //practice 
+// const checkBaggage = function (items) {
+//   const check = items.toLowerCase(); //because case sensitive thats y convertign to lowercase helps a lot
+//   if(check.includes('knife') || check.includes('gun')){
+//     console.log('U are under arrest')
+//   }else{
+//     console.log('Welcome On Board')
+//   }
 
-}
-checkBaggage('I have a bomb and gun');
-checkBaggage('food bat KnIfe');
-checkBaggage('clothes adn books');
+// }
+// checkBaggage('I have a bomb and gun');
+// checkBaggage('food bat KnIfe');
+// checkBaggage('clothes adn books');
 
-console.log('A+B+C'.split('+'));
-console.log('Jhon cena'.split(' '))
+// console.log('A+B+C'.split('+'));
+// console.log('Jhon cena'.split(' '))
 
-const [firstName,LastName] = 'Jhon Cena'.split(' ');
-console.log(firstName,LastName)
-const newName =['Mr', firstName,LastName.toUpperCase()].join(' ');
-console.log(newName);
+// const [firstName,LastName] = 'Jhon Cena'.split(' ');
+// console.log(firstName,LastName)
+// const newName =['Mr', firstName,LastName.toUpperCase()].join(' ');
+// console.log(newName);
 
 
 //capitalize
 
-const captitalize = function (name) {
-  const names = name.split(' ');
-  const namesupper = [];
-  for(const n of names){
-    // namesupper.push(n[0].toUpperCase() + n.slice(1));
-     namesupper.push(n.replace(n[0],n[0].toUpperCase()))
-  }
-  console.log(namesupper.join(' '))
-}
-captitalize('jesicca jessica jesicca');
-captitalize('jason is aa good boy');
+// const captitalize = function (name) {
+//   const names = name.split(' ');
+//   const namesupper = [];
+//   for(const n of names){
+//     // namesupper.push(n[0].toUpperCase() + n.slice(1));
+//      namesupper.push(n.replace(n[0],n[0].toUpperCase()))
+//   }
+//   console.log(namesupper.join(' '))
+// }
+// captitalize('jesicca jessica jesicca');
+// captitalize('jason is aa good boy');
 
-//padding
-const message = 'Go to gate 23 !'
-console.log(message.padStart(25,'+').padEnd(45,'/'));
+// //padding
+// const message = 'Go to gate 23 !'
+// console.log(message.padStart(25,'+').padEnd(45,'/'));
 
 //use case of padding
-const creditCard = function(number){
-  const str = number + ''; //convert number to string
-  const last4 = str.slice(-4);
-  return last4.padStart(str.length,'*');
-}
-console.log(creditCard(123456789111));
-console.log(creditCard(177171625623333333333333333));
-console.log(creditCard(11111111111));
+// const creditCard = function(number){
+//   const str = number + ''; //convert number to string
+//   const last4 = str.slice(-4);
+//   return last4.padStart(str.length,'*');
+// }
+// console.log(creditCard(123456789111));
+// console.log(creditCard(177171625623333333333333333));
+// console.log(creditCard(11111111111));
 
-//Repeat Method
+// //Repeat Method
 
-console.log('❤️'.repeat(100));
-const mess = function(n){
-  console.log(`there are ${n} planes waiting ${'✈️' .repeat(n)}`);
-}
-console.log(mess(5));
-console.log(mess(7));
-console.log(mess(8));
+// console.log('❤️'.repeat(100));
+// const mess = function(n){
+//   console.log(`there are ${n} planes waiting ${'✈️' .repeat(n)}`);
+// }
+// console.log(mess(5));
+// console.log(mess(7));
+// console.log(mess(8));
 
 
 
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
 
 //Task 1
 
-document.querySelector('button').addEventListener('click',function(){
-  let text = document.querySelector('textarea').value
-  const rows = text.split('\n');
-  // console.log(rows);
+// document.querySelector('button').addEventListener('click',function(){
+//   let text = document.querySelector('textarea').value
+//   const rows = text.split('\n');
+//   // console.log(rows);
 
-  for(const [i,row] of rows.entries()){
-    let [fName,LastName] = row.toLocaleLowerCase().trim(  ).split('_')
-    // console.log(row,fName,LastName);
-    const finalResult = `${fName}${LastName.replace(LastName[0],LastName[0].toUpperCase())}`
-    console.log(`${finalResult.padEnd(20,' ')}${'✅'.repeat(i+1)}`);
+//   for(const [i,row] of rows.entries()){
+//     let [fName,LastName] = row.toLocaleLowerCase().trim(  ).split('_')
+//     // console.log(row,fName,LastName);
+//     const finalResult = `${fName}${LastName.replace(LastName[0],LastName[0].toUpperCase())}`
+//     console.log(`${finalResult.padEnd(20,' ')}${'✅'.repeat(i+1)}`);
 
-  }
-})
+//   }
+// })
 
 
 // console.log(plane[0]);
