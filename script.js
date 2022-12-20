@@ -151,8 +151,75 @@ const checkBaggage = function (items) {
 }
 checkBaggage('I have a bomb and gun');
 checkBaggage('food bat KnIfe');
-checkBaggage('clothes adn books')
+checkBaggage('clothes adn books');
 
+console.log('A+B+C'.split('+'));
+console.log('Jhon cena'.split(' '))
+
+const [firstName,LastName] = 'Jhon Cena'.split(' ');
+console.log(firstName,LastName)
+const newName =['Mr', firstName,LastName.toUpperCase()].join(' ');
+console.log(newName);
+
+
+//capitalize
+
+const captitalize = function (name) {
+  const names = name.split(' ');
+  const namesupper = [];
+  for(const n of names){
+    // namesupper.push(n[0].toUpperCase() + n.slice(1));
+     namesupper.push(n.replace(n[0],n[0].toUpperCase()))
+  }
+  console.log(namesupper.join(' '))
+}
+captitalize('jesicca jessica jesicca');
+captitalize('jason is aa good boy');
+
+//padding
+const message = 'Go to gate 23 !'
+console.log(message.padStart(25,'+').padEnd(45,'/'));
+
+//use case of padding
+const creditCard = function(number){
+  const str = number + ''; //convert number to string
+  const last4 = str.slice(-4);
+  return last4.padStart(str.length,'*');
+}
+console.log(creditCard(123456789111));
+console.log(creditCard(177171625623333333333333333));
+console.log(creditCard(11111111111));
+
+//Repeat Method
+
+console.log('❤️'.repeat(100));
+const mess = function(n){
+  console.log(`there are ${n} planes waiting ${'✈️' .repeat(n)}`);
+}
+console.log(mess(5));
+console.log(mess(7));
+console.log(mess(8));
+
+
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+//Task 1
+
+document.querySelector('button').addEventListener('click',function(){
+  let text = document.querySelector('textarea').value
+  const rows = text.split('\n');
+  // console.log(rows);
+
+  for(const [i,row] of rows.entries()){
+    let [fName,LastName] = row.toLocaleLowerCase().trim(  ).split('_')
+    // console.log(row,fName,LastName);
+    const finalResult = `${fName}${LastName.replace(LastName[0],LastName[0].toUpperCase())}`
+    console.log(`${finalResult.padEnd(20,' ')}${'✅'.repeat(i+1)}`);
+
+  }
+})
 
 
 // console.log(plane[0]);
